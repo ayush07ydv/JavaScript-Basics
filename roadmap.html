@@ -1,0 +1,1428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JS GOD-LEVEL ROADMAP — ANDREW</title>
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=JetBrains+Mono:wght@300;400;500;700&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <style>
+   @media print {
+  /* Force the browser to respect your original, individual element colors */
+  html, body, * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+
+  /* Fix for the browser's default white margins */
+  @page {
+    size: auto;
+    margin: 0mm;
+  }
+}
+
+
+    :root {
+      --bg: #06060f;
+      --surface: #0c0c1e;
+      --surface2: #101028;
+      --border: rgba(255,255,255,0.06);
+      --text: #c4c4dc;
+      --text-dim: #484878;
+      --p1: #00ff9d;
+      --p2: #00cfff;
+      --p3: #c800ff;
+      --p4: #ff7700;
+      --p5: #ff0066;
+      --p6: #f5c400;
+      --p7: #ff00ee;
+    }
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 15px;
+      line-height: 1.65;
+      overflow-x: hidden;
+    }
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: radial-gradient(circle, rgba(255,255,255,0.025) 1px, transparent 1px);
+      background-size: 28px 28px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative;
+      z-index: 1;
+      padding: 80px 48px 56px;
+      text-align: center;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    .hero-eyebrow {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      color: var(--p1);
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+      opacity: 0.8;
+    }
+    .hero h1 {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(64px, 12vw, 120px);
+      line-height: 0.88;
+      letter-spacing: 3px;
+      color: #ffffff;
+      margin-bottom: 18px;
+    }
+    .hero h1 .outline {
+      -webkit-text-stroke: 1.5px var(--p1);
+      color: transparent;
+    }
+    .hero-sub {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 12px;
+      color: var(--text-dim);
+      letter-spacing: 1px;
+      margin-bottom: 44px;
+    }
+    .phase-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+    }
+    .phase-chip {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      padding: 6px 14px;
+      border-radius: 2px;
+      border: 1px solid;
+      text-decoration: none;
+      transition: transform 0.18s, box-shadow 0.18s;
+      letter-spacing: 1px;
+    }
+    .phase-chip:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 16px rgba(0,0,0,0.4);
+    }
+
+    /* ── STICKY NAV ── */
+    .sticky-nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(6, 6, 15, 0.92);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+      padding: 11px 40px;
+      display: flex;
+      gap: 8px;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+    .sticky-nav::-webkit-scrollbar { display: none; }
+    .nav-pill {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      white-space: nowrap;
+      padding: 5px 12px;
+      border-radius: 2px;
+      border: 1px solid;
+      text-decoration: none;
+      transition: opacity 0.15s, transform 0.15s;
+      letter-spacing: 1px;
+    }
+    .nav-pill:hover { opacity: 0.75; transform: translateY(-1px); }
+
+    /* ── PHASES CONTAINER ── */
+    .phases-container {
+      position: relative;
+      z-index: 1;
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 20px 48px 40px;
+    }
+    .phase-section {
+      margin-bottom: 64px;
+      border-left: 2px solid;
+      padding-left: 32px;
+      position: relative;
+    }
+    .phase-section::before {
+      content: '';
+      position: absolute;
+      left: -6px;
+      top: 14px;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--phase-color);
+      box-shadow: 0 0 14px var(--phase-color), 0 0 30px var(--phase-color);
+    }
+    .phase-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 4px;
+      flex-wrap: wrap;
+    }
+    .phase-num-bg {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 72px;
+      line-height: 1;
+      color: var(--phase-color);
+      opacity: 0.10;
+      user-select: none;
+      letter-spacing: 2px;
+      flex-shrink: 0;
+    }
+    .phase-title-block { flex: 1; min-width: 180px; }
+    .phase-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      letter-spacing: 3px;
+      color: var(--phase-color);
+      text-transform: uppercase;
+      margin-bottom: 2px;
+    }
+    .phase-name {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 34px;
+      letter-spacing: 2px;
+      color: #ffffff;
+      line-height: 1;
+    }
+    .phase-duration {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      border: 1px solid var(--phase-color);
+      color: var(--phase-color);
+      padding: 4px 11px;
+      border-radius: 2px;
+      white-space: nowrap;
+      align-self: center;
+    }
+    .phase-desc {
+      font-size: 13px;
+      color: var(--text-dim);
+      margin-bottom: 20px;
+      font-style: italic;
+      line-height: 1.6;
+    }
+
+    /* ── TOPICS ── */
+    .topics-list { display: flex; flex-direction: column; gap: 7px; margin-bottom: 20px; }
+    .topic-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 3px;
+      overflow: hidden;
+      transition: border-color 0.2s;
+    }
+    .topic-card:hover { border-color: rgba(255,255,255,0.1); }
+    .topic-toggle {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      padding: 11px 15px;
+      background: none;
+      border: none;
+      color: var(--text);
+      cursor: pointer;
+      text-align: left;
+      font-family: 'DM Sans', sans-serif;
+      font-size: 13.5px;
+      font-weight: 500;
+      transition: background 0.15s;
+    }
+    .topic-toggle:hover { background: rgba(255,255,255,0.025); }
+    .topic-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--phase-color);
+      flex-shrink: 0;
+      box-shadow: 0 0 6px var(--phase-color);
+    }
+    .topic-name { flex: 1; }
+    .topic-arrow {
+      font-size: 9px;
+      color: var(--text-dim);
+      transition: transform 0.2s;
+    }
+    .topic-card.open .topic-arrow { transform: rotate(180deg); }
+    .topic-body {
+      display: none;
+      padding: 12px 15px 14px 32px;
+      border-top: 1px solid var(--border);
+      background: rgba(0,0,0,0.18);
+    }
+    .topic-card.open .topic-body { display: block; }
+    .topic-desc {
+      font-size: 12px;
+      color: var(--text-dim);
+      margin-bottom: 11px;
+      line-height: 1.55;
+    }
+    .resource-grid { display: flex; flex-direction: column; gap: 7px; }
+    .resource-row { display: flex; align-items: flex-start; gap: 9px; }
+    .resource-badge {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 9px;
+      padding: 2px 7px;
+      border-radius: 2px;
+      white-space: nowrap;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+    .badge-book  { background: rgba(0,207,255,0.08);  color: #00cfff; border: 1px solid rgba(0,207,255,0.2); }
+    .badge-yt    { background: rgba(255,60,60,0.08);  color: #ff5555; border: 1px solid rgba(255,60,60,0.2); }
+    .badge-do    { background: rgba(0,255,157,0.08);  color: #00ff9d; border: 1px solid rgba(0,255,157,0.2); }
+    .badge-read  { background: rgba(245,196,0,0.08);  color: #f5c400; border: 1px solid rgba(245,196,0,0.2); }
+    .resource-text { font-size: 12px; color: var(--text); line-height: 1.5; }
+    .resource-text strong { color: #ffffff; font-weight: 500; }
+
+    /* ── MILESTONE ── */
+    .milestone-box {
+      background: rgba(0,0,0,0.25);
+      border: 1px dashed var(--phase-color);
+      border-radius: 3px;
+      padding: 14px 18px;
+      margin-top: 4px;
+    }
+    .milestone-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 9px;
+      letter-spacing: 3px;
+      color: var(--phase-color);
+      text-transform: uppercase;
+      margin-bottom: 5px;
+    }
+    .milestone-text { font-size: 13px; color: var(--text); line-height: 1.55; }
+    .milestone-text strong { color: #fff; }
+
+    /* ── BOOKS SECTION ── */
+    .books-section {
+      position: relative;
+      z-index: 1;
+      max-width: 860px;
+      margin: 0 auto;
+      padding: 0 48px 80px;
+    }
+    .section-header { display: flex; align-items: center; gap: 18px; margin-bottom: 28px; }
+    .section-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 38px;
+      letter-spacing: 2px;
+      color: #fff;
+      white-space: nowrap;
+    }
+    .section-line { flex: 1; height: 1px; background: var(--border); }
+    .books-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 12px;
+    }
+    .book-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 3px;
+      padding: 17px;
+      transition: border-color 0.2s;
+    }
+    .book-card:hover { border-color: rgba(255,255,255,0.13); }
+    .book-meta { display: flex; justify-content: flex-start; margin-bottom: 9px; }
+    .book-phase-tag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 9px;
+      padding: 2px 8px;
+      border-radius: 2px;
+      letter-spacing: 1px;
+    }
+    .book-title { font-size: 13.5px; font-weight: 600; color: #fff; line-height: 1.35; margin-bottom: 4px; }
+    .book-author { font-size: 11.5px; color: var(--text-dim); margin-bottom: 11px; }
+    .book-footer { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+    .price-badge {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 9px;
+      padding: 3px 9px;
+      border-radius: 2px;
+      letter-spacing: 1px;
+    }
+    .price-free { background: rgba(0,255,157,0.08); color: var(--p1); border: 1px solid rgba(0,255,157,0.22); }
+    .price-paid { background: rgba(255,119,0,0.08); color: var(--p4); border: 1px solid rgba(255,119,0,0.22); }
+    .price-both { background: rgba(245,196,0,0.08); color: var(--p6); border: 1px solid rgba(245,196,0,0.22); }
+    .book-note { font-size: 11px; color: var(--text-dim); font-style: italic; }
+
+    /* ── FOOTER ── */
+    .footer {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      padding: 36px 20px 44px;
+      border-top: 1px solid var(--border);
+    }
+    .footer-text {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      color: var(--text-dim);
+      line-height: 1.8;
+      letter-spacing: 1px;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 620px) {
+      .hero { padding: 48px 22px 40px; }
+      .phases-container, .books-section { padding-left: 22px; padding-right: 22px; }
+      .phase-num-bg { font-size: 48px; }
+      .phase-name { font-size: 26px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ═══════════════════ HERO ═══════════════════ -->
+<section class="hero">
+  <div class="hero-eyebrow">// andrew's personal roadmap · generated 2026</div>
+  <h1>JAVASCRIPT<br><span class="outline">GOD LEVEL</span></h1>
+  <p class="hero-sub">Backend + Systems Engineering &nbsp;·&nbsp; 7 Phases &nbsp;·&nbsp; ~18 Months &nbsp;·&nbsp; Zero Excuses</p>
+  <div class="phase-chips">
+    <a href="#phase1" class="phase-chip" style="color:var(--p1);border-color:rgba(0,255,157,0.25)">P1 · FOUNDATIONS</a>
+    <a href="#phase2" class="phase-chip" style="color:var(--p2);border-color:rgba(0,207,255,0.25)">P2 · CORE DEEP DIVE</a>
+    <a href="#phase3" class="phase-chip" style="color:var(--p3);border-color:rgba(200,0,255,0.25)">P3 · ASYNC MASTERY</a>
+    <a href="#phase4" class="phase-chip" style="color:var(--p4);border-color:rgba(255,119,0,0.25)">P4 · NODE.JS BACKEND</a>
+    <a href="#phase5" class="phase-chip" style="color:var(--p5);border-color:rgba(255,0,102,0.25)">P5 · PRODUCTION</a>
+    <a href="#phase6" class="phase-chip" style="color:var(--p6);border-color:rgba(245,196,0,0.25)">P6 · TS + ARCHITECTURE</a>
+    <a href="#phase7" class="phase-chip" style="color:var(--p7);border-color:rgba(255,0,238,0.25)">P7 · GOD LEVEL</a>
+    <a href="#books" class="phase-chip" style="color:var(--text-dim);border-color:var(--border)">📚 ALL BOOKS</a>
+  </div>
+</section>
+
+<!-- ═══════════════════ NAV ═══════════════════ -->
+<nav class="sticky-nav">
+  <a href="#phase1" class="nav-pill" style="color:var(--p1);border-color:rgba(0,255,157,0.2)">01 · FOUNDATIONS</a>
+  <a href="#phase2" class="nav-pill" style="color:var(--p2);border-color:rgba(0,207,255,0.2)">02 · CORE DIVE</a>
+  <a href="#phase3" class="nav-pill" style="color:var(--p3);border-color:rgba(200,0,255,0.2)">03 · ASYNC</a>
+  <a href="#phase4" class="nav-pill" style="color:var(--p4);border-color:rgba(255,119,0,0.2)">04 · NODE.JS</a>
+  <a href="#phase5" class="nav-pill" style="color:var(--p5);border-color:rgba(255,0,102,0.2)">05 · PRODUCTION</a>
+  <a href="#phase6" class="nav-pill" style="color:var(--p6);border-color:rgba(245,196,0,0.2)">06 · TS + ARCH</a>
+  <a href="#phase7" class="nav-pill" style="color:var(--p7);border-color:rgba(255,0,238,0.2)">07 · GOD LEVEL</a>
+  <a href="#books" class="nav-pill" style="color:var(--text-dim);border-color:var(--border)">📚 BOOKS</a>
+</nav>
+
+<!-- ═══════════════════ PHASES ═══════════════════ -->
+<div class="phases-container">
+
+  <!-- ─────── PHASE 1 ─────── -->
+  <section id="phase1" class="phase-section" style="border-color:var(--p1);--phase-color:var(--p1)">
+    <div class="phase-header">
+      <div class="phase-num-bg">01</div>
+      <div class="phase-title-block">
+        <div class="phase-label">Phase 01</div>
+        <div class="phase-name">FOUNDATIONS</div>
+      </div>
+      <div class="phase-duration">Month 1 – 2</div>
+    </div>
+    <p class="phase-desc">"Build the bedrock. Every concept here is load-bearing. Skip one and the whole structure shakes later. You're already started with Sheryian — don't treat the cohort as your ceiling."</p>
+
+    <div class="topics-list">
+
+      <div class="topic-card">
+        <button class="topic-toggle" onclick="tog(this)">
+          <div class="topic-dot"></div><span class="topic-name">How JavaScript Actually Works</span><span class="topic-arrow">▼</span>
+        </button>
+        <div class="topic-body">
+          <div class="topic-desc">V8 engine, browser execution context, JS runtime model — understand the machine you're writing for</div>
+          <div class="resource-grid">
+            <div class="resource-row"><span class="resource-badge badge-book">📖 BOOK</span><span class="resource-text"><strong>Eloquent JavaScript, 4th Ed.</strong> — Ch. 1: Values, Types & Operators</span></div>
+            <div class="resource-row"><span class="resource-badge badge-yt">▶ WATCH</span><span class="resource-text"><strong>Fireship</strong> — "JavaScript in 100 Seconds" (2 min mental model first)</span></div>
+            <div class="resource-row"><span class="resource-badge badge-do">⌨ DO</span><span class="resource-text"><strong>javascript.info</strong> — "Introduction to JavaScript" section</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="topic-card">
+        <button class="topic-toggle" onclick="tog(this)">
+          <div class="topic-dot"></div><span class="topic-name">Variables — var, let, const</span><span class="topic-arrow">▼</span>
+        </button>
+        <div class="topic-body">
+          <div class="topic-desc">Scope implications per keyword, temporal dead zone with let/const, why var is a trap, const with objects</div>
+          <div class="resource-grid">
+            <div class="resource-row"><span class="resource-badge badge-book">📖 BOOK</span><span class="resource-text"><strong>Eloquent JavaScript</strong> — Ch. 2: Program Structure</span></div>
+            <div class="resource-row"><span class="resource-badge badge-yt">▶ WATCH</span><span class="resource-text"><strong>Sheryian Coding School</strong> — Cohort 2.0 (complete the full cohort — it covers this properly)</span></div>
+            <div class="resource-row"><span class="resource-badge badge-do">⌨ DO</span><span class="resource-text"><strong>freeCodeCamp</strong> — "Basic JavaScript" section</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="topic-card">
+        <button class="topic-toggle" onclick="tog(this)">
+          <div class="topic-dot"></div><span class="topic-name">Data Types & Type Coercion</span><span class="topic-arrow">▼</span>
+        </button>
+        <div class="topic-body">
+          <div class="topic-desc">Primitives vs objects, == vs ===, typeof quirks, implicit coercion traps — understand why JS does weird things</div>
+          <div class="resource-grid">
+            <div class="resource-row"><span class="resource-badge badge-book">📖 BOOK</span><span class="resource-text"><strong>Eloquent JavaScript</strong> — Ch. 1 (data types + coercion section)</span></div>
+            <div class="resource-row"><span class="resource-badge badge-yt">▶ WATCH</span><span class="resource-text"><strong>Web Dev Simplified</strong> — "JavaScript Type Coercion Explained"</span></div>
+            <div class="resource-row"><span class="resource-badge badge-do">⌨ DO</span><span class="resource-text"><strong>javascript.info</strong> — "Data Types" section — complete it fully</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="topic-card">
+        <button class="topic-toggle" onclick="tog(this)">
+          <div class="topic-dot"></div><span class="topic-name">Functions — Declarations, Expressions, Arrow</span><span class="topic-arrow">▼</span>
+        </button>
+        <div class="topic-body">
+          <div class="topic-desc">Function hoisting, first-class functions, parameters, default values, rest params, differences between declaration and expression</div>
+          <div class="resource-grid">
+            <div class="resource-row"><span class="resource-badge badge-book">📖 BOOK</span><span class="resource-text"><strong>Eloquent JavaScript</strong> — Ch. 3: Functions (full chapter)</span></div>
+            <div class="resource-row"><span class="resource-badge badge-yt">▶ WATCH</span><span class="resource-text"><strong>Traversy Media</strong> — "JavaScript Crash Course for Beginners" (functions section)</span></div>
+            <div class="resource-row"><span class="resource-badge badge-do">⌨ DO</span><span class="resource-text"><strong>javascript.info</strong> — "Functions" chapter — do all exercises</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="topic-card">
+        <button class="topic-toggle" onclick="tog(this)">
+          <div class="topic-dot"></div><span class="topic-name">Scope — Block, Function, Global</span><span class="topic-arrow">▼</span>
+        </button>
+        <div class="topic-body">
+          <div class="topic-desc">Lexical scoping, scope chain lookup, variable shadowing, IIFE pattern, why scope matters for closures later</div>
+          <div class="resource-grid">
+            <div class="resource-row"><span class="resource-badge badge-book">📖 BOOK</span><span class="resource-text"><strong>Eloquent JavaScript</strong> — Ch. 3 (scope section within functions chapter)</span></div>
+            <div class="resource-row"><span class="resource-badge badge-yt">▶ WATCH</span><span class="resource-text"><strong>Web Dev Simplified</strong> — "JavaScript Scope Explained"</span></div>
+            <div class="resource-row"><span class="resource-badge badge-do">⌨ DO</span><span class="resource-text"><strong>javascript.info</strong> — "Variable scope, closure" intro exercises</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="topic-card">
+        <button class="topic-toggle" onclick="tog(this)">
+          <div class="topic-dot"></div><span class="topic-name">Arrays & Objects — Core Operations</span><span class="topic-arrow">▼</span>
+        </button>
+        <div class="topic-body">
+          <div class="topic-desc">CRUD ops, push/pop/slice/splice, object shorthand, computed keys, for...of vs for...in, Object methods</div>
+          <div class="resource-grid">
+            <div class="resource-row"><span class="resource-badge badge-book">📖 BOOK</span><span class="resource-text"><strong>Eloquent JavaScript</strong> — Ch. 4: Data Structures: Objects and Arrays</span></div>
+            <div class="resource-row"><span class="resource-badge badge-yt">▶ WATCH</span><span class="resource-text"><strong>The Net Ninja</strong> — "JavaScript Tutorial for Beginners" series (array/object episodes)</span></div>
+            <div class="resource-row"><span class="resource-badge badge-do">⌨ DO</span><span class="resource-text"><strong>Exercism.io</strong> — JavaScript track: first 10 beginner exercises</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="topic-card">
+        <button class="topic-toggle" onclick="tog(this)">
+          <div class="topic-dot"></div><span class="topic-name">DOM Manipulation</span><span class="topic-arrow">▼</span>
+        </button>
+        <div class="topic-body">
+          <div class="topic-desc">querySelector/querySelectorAll, modifying content/attributes/classes, createElement/append/remove, DOM traversal</div>
+          <div class="resource-grid">
+            <div class="resource-row"><span class="resource-badge badge-book">📖 BOOK</span><span class="resource-text"><strong>Eloquent JavaScript</strong> — Ch. 13–14: The Document Object Model</span></div>
+            <div class="resource-row"><span class="resource-badge badge-yt">▶ WATCH</span><span class="resource-text"><strong>Traversy Media</strong> — "JavaScript DOM Crash Course" (4-part series, watch all)</span></div>
+            <div class="resource-row"><span class="resource-badge badge-do">⌨ DO</span><span class="resource-text"><strong>javascript.info</strong> — "Browser: Document, Events, Interfaces" module</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="topic-card">
+        <button class="topic-toggle" onclick="tog(this)">
+          <div class="topic-dot"></div><span class="topic-name">Event Handling</span><span class="topic-arrow">▼</span>
+        </button>
+        <div class="topic-body">
+          <div class="topic-desc">addEventListener, event bubbling vs capturing, delegation, preventDefault, stopPropagation, custom events</div>
+          <div class="resource-grid">
+            <div class="resource-row"><span class="resource-badge badge-book">📖 BOOK</span><span class="resource-text"><strong>Eloquent JavaScript</strong> — Ch. 15: Handling Events</span></div>
+            <div class="resource-row"><span class="resource-badge badge-yt">▶ WATCH</span><span class="resource-text"><strong>The Net Ninja</strong> — "JavaScript DOM Tutorial" (event-specific episodes)</span></div>
+            <div class="resource-row"><span class="resource-badge badge-do">⌨ DO</span><span class="resource-text"><strong>Build</strong> — A basic interactive form validator from scratch — no libraries</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="topic-card">
+        <button class="topic-toggle" onclick="tog(this)">
+          <div class="topic-dot"></div><span class="topic-name">Git & Version Control</span><span class="topic-arrow">▼</span>
+        </button>
+        <div class="topic-body">
+          <div class="topic-desc">init, add, commit, branch, merge, push, pull, GitHub — mandatory from Day 1. No exceptions. Ever.</div>
+          <div class="resource-grid">
+            <div class="resource-row"><span class="resource-badge badge-yt">▶ WATCH</span><span class="resource-text"><strong>Traversy Media</strong> — "Git & GitHub Crash Course For Beginners"</span></div>
+            <div class="resource-row"><span class="resource-badge badge-read">📄 READ</span><span class="resource-text"><strong>GitHub Docs</strong> — "Getting started with Git" (official, free)</span></div>
+            <div class="resource-row"><span class="resource-badge badge-do">⌨ DO</span><span class="resource-text"><strong>Commit every single day.</strong> Ugly code still counts. Build the habit now.</span></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="milestone-box">
+      <div class="milestone-label">🏁 Phase 1 Milestone Project</div>
+      <div class="milestone-text">Build a <strong>To-Do App</strong> — full DOM manipulation, localStorage persistence, edit/delete/filter. <strong>ZERO tutorial hand-holding during build.</strong> Write every line. Docs only, no YouTube.</div>
+    </div>
+  </section>
+
+  <!-- ─────── PHASE 2 ─────── -->
+  <section id="phase2" class="phase-section" style="border-color:var(--p2);--phase-color:var(--p2)">
+    <div class="phase-header">
+      <div class="phase-num-bg">02</div>
+      <div class="phase-title-block">
+        <div class="phase-label">Phase 02</div>
+        <div class="phase-name">CORE DEEP DIVE</div>
+      </div>
+      <div class="phase-duration">Month 2 – 4</div>
+    </div>
+    <p class="phase-desc">"This is the 90% wall. Most people stay surface-level forever. The YDKJS series is your weapon here — it's free on GitHub and has no equal."</p>
+
+    <div class="topics-list">
+
+      <div class="topic-card">
+        <button class="topic-toggle" onclick="tog(this)">
+          <div class="topic-dot"></div><span class="topic-name">ES6+ Modern Syntax — Full Sweep</span><span class="topic-arrow">▼</span>
+        </button>
+        <div class="topic-body">
+          <div class="topic-desc">Arrow functions (and when NOT to use them), template literals, destructuring (nested too), spread/rest, default params, optional chaining ?., nullish coalescing ??</div>
+          <div class="resource-grid">
+            <div class="resource-row"><span class="resource-badge badge-book">📖 BOOK</span><span class="resource-text"><strong>YDKJS: ES6 & Beyond</strong> — Ch. 2: Syntax + Ch. 3: Modules</span></div>
+            <div class="resource-row"><span class="resource-badge badge-yt">▶ WATCH</span><span class="resource-text"><strong>Fireship</strong> — "Every JavaScript Feature Explained in 5 Minutes"</span></div>
+            <div class="resource-row"><span class="resource-badge badge-do">⌨ DO</span><span class="resource-text"><strong>javascript.info</strong> — "Modern JavaScript Features" — all sections</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="topic-card">
+        <button class="topic-toggle" onclick="tog(this)">
+          <div class="topic-dot"></div><span class="topic-name">Closures — Deeply Understood</span><span class="topic-arrow">▼</span>
+        </button>
+        <div class="topic-body">
+          <div class="topic-desc">Lexical environment, closure over variables (not values!), closure pitfalls in loops, practical uses: memoization, data privacy, module pattern, partial application</div>
+          <div class="resource-grid">
+            <div class="resource-row"><span class="resource-badge badge-book">📖 BOOK</span><span class="resource-text"><strong>YDKJS: Scope & Closures</strong> — Read the ENTIRE book. Not optional.</span></div>
+            <div class="resource-row"><span class="resource-badge badge-yt">▶ WATCH</span><span class="resource-text"><strong>Fireship</strong> — "Closures Explained in 100 Seconds"</span></div>
+            <div class="resource-row"><span class="resource-badge badge-do">⌨ DO</span><span class="resource-text"><strong>Build from scratch:</strong> a counter factory function, a memoize utility, a module with private state</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="topic-card">
+        <button class="topic-toggle" onclick="tog(this)">
+          <div class="topic-dot"></div><span class="topic-name">Hoisting — The Full Truth</span><span class="topic-arrow">▼</span>
+        </button>
+        <div class="topic-body">
+          <div class="topic-desc">Function declaration vs expression hoisting, var hoisting (only declaration, not value), TDZ with let/const, why hoisting exists in the language</div>
+          <div class="resource-grid">
+            <div class="resource-row"><span class="resource-badge badge-book">📖 BOOK</span><span class="resource-text"><strong>YDKJS: Scope & Closures</strong> — Ch. 4: Hoisting</span></div>
+            <div class="resource-row"><span class="resource-badge badge-yt">▶ WATCH</span><span class="resource-text"><strong>Web Dev Simplified</strong> — "Hoisting in JavaScript Explained"</span></div>
+            <div class="resource-row"><span class="resource-badge badge-do">⌨ DO</span><span class="resource-text"><strong>javascript.info</strong> — "Old var" section + write 10 hoisting prediction exercises yourself</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="topic-card">
+        <button class="topic-toggle" onclick="tog(this)">
+          <div class="topic-dot"></div><span class="topic-name">The `this` Keyword — Fully Tamed</span><span class="topic-arrow">▼</span>
+        </button>
+        <div class="topic-body">
+          <div class="topic-desc">4 binding rules: default, implicit, explicit (call/apply/bind), new. Arrow functions and lexical this. Common pitfalls in callbacks, event listeners, class methods</div>
+          <div class="resource-grid">
+            <div class="resource-row"><span class="resource-badge badge-book">📖 BOOK</span><span class="resource-text"><strong>YDKJS: this & Object Prototypes</strong> — Ch. 1–2: this All Makes Sense Now!</span></div>
+            <div class="resource-row"><span class="resource-badge badge-yt">▶ WATCH</span><span class="resource-text"><strong>Web Dev Simplified</strong> — "JavaScript `this` Keyword in Depth"</span></div>
+            <div class="resource-row"><span class="resource-badge badge-do">⌨ DO</span><span class="resource-text"><strong>javascript.info</strong> — "Object methods, this" — complete ALL challenges</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="topic-card">
+        <button class="topic-toggle" onclick="tog(this)">
+          <div class="topic-dot"></div><span class="topic-name">Prototypes & Prototype Chain</span><span class="topic-arrow">▼</span>
+        </button>
+        <div class="topic-body">
+          <div class="topic-desc">[[Prototype]] / __proto__, Object.create(), chain lookup, constructor functions, class syntax as syntactic sugar, inheritance patterns — know ALL 3 ways</div>
+          <div class="resource-grid">
+            <div class="resource-row"><span class="resource-badge badge-book">📖 BOOK</span><span class="resource-text"><strong>YDKJS: this & Object Prototypes</strong> — Ch. 4–6: Prototypes (the core of the book)</span></div>
+            <div class="resource-row"><span class="resource-badge badge-yt">▶ WATCH</span><span class="resource-text"><strong>Fireship</strong> — "Prototype Chain in Plain English"</span></div>
+            <div class="resource-row"><span class="resource-badge badge-do">⌨ DO</span><span class="resource-text"><strong>Build:</strong> Implement the same inheritance 3 ways — Object.create, constructor fn, class</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="topic-card">
+        <button class="topic-toggle" onclick="tog(this)">
+          <div class="topic-dot"></div><span class="topic-name">Higher-Order Functions — map, filter, reduce</span><span class="topic-arrow">▼</span>
+        </button>
+        <div class="topic-body">
+          <div class="topic-desc">Functions as first-class citizens, chaining array methods, implementing YOUR OWN map/filter/reduce from scratch to understand them</div>
+          <div class="resource-grid">
+            <div class="resource-row"><span class="resource-badge badge-book">📖 BOOK</span><span class="resource-text"><strong>Eloquent JavaScript</strong> — Ch. 5: Higher-Order Functions</span></div>
+            <div class="resource-row"><span class="resource-badge badge-yt">▶ WATCH</span><span class="resource-text"><strong>Fireship</strong> — "Array Methods You Should Know"</span></div>
+            <div class="resource-row"><span class="resource-badge badge-do">⌨ DO</span><span class="resource-text"><strong>Exercism.io</strong> — JavaScript track: "Array Transformations" exercise set</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="topic-card">
+        <button class="topic-toggle" onclick="tog(this)">
+          <div class="topic-dot"></div><span class="topic-name">Error Handling</span><span class="topic-arrow">▼</span>
+        </button>
+        <div class="topic-body">
+          <div class="topic-desc">try/catch/finally, built-in Error types, custom error classes (extend Error), when to throw vs swallow, stack traces, error propagation patterns</div>
+          <div class="resource-grid">
+            <div class="resource-row"><span class="resource-badge badge-book">📖 BOOK</span><span class="resource-text"><strong>Eloquent JavaScript</strong> — Ch. 8: Bugs and Errors (full chapter)</span></div>
+            <div class="resource-row"><span class="resource-badge badge-yt">▶ WATCH</span><span class="resource-text"><strong>Traversy Media</strong> — "Error Handling in JavaScript"</span></div>
+            <div class="resource-row"><span class="resource-badge badge-do">⌨ DO</span><span class="resource-text"><strong>javascript.info</strong> — "Error handling" chapter — build 3 custom error classes</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="topic-card">
+        <button class="topic-toggle" onclick="tog(this)">
+          <div class="topic-dot"></div><span class="topic-name">ES Modules — import / export</span><span class="topic-arrow">▼</span>
+        </button>
+        <div class="topic-body">
+          <div class="topic-desc">Named vs default exports, re-exporting, dynamic imports, the difference from CommonJS (require) — you need both for Node.js</div>
+          <div class="resource-grid">
+            <div class="resource-row"><span class="resource-badge badge-book">📖 BOOK</span><span class="resource-text"><strong>YDKJS: ES6 & Beyond</strong> — Ch. 3: Modules (full chapter)</span></div>
+            <div class="resource-row"><span class="resource-badge badge-yt">▶ WATCH</span><span class="resource-text"><strong>Fireship</strong> — "JavaScript Modules in 100 Seconds"</span></div>
+            <div class="resource-row"><span class="resource-badge badge-do">⌨ DO</span><span class="resource-text"><strong>Refactor</strong> — your To-Do App into a modular structure using ES modules</span></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="milestone-box">
+      <div class="milestone-label">🏁 Phase 2 Milestone Project</div>
+      <div class="milestone-text">Build a <strong>Weather Dashboard</strong> — OpenWeatherMap API, destructuring, modular ES module structure, 5-day forecast, clean error handling. Deploy to GitHub Pages.</div>
+    </div>
+  </section>
+
+  <!-- ─────── PHASE 3 ─────── -->
+  <section id="phase3" class="phase-section" style="border-color:var(--p3);--phase-color:var(--p3)">
+    <div class="phase-header">
+      <div class="phase-num-bg">03</div>
+      <div class="phase-title-block">
+        <div class="phase-label">Phase 03</div>
+        <div class="phase-name">ASYNC MASTERY</div>
+      </div>
+      <div class="phase-duration">Month 4 – 6</div>
+    </div>
+    <p class="phase-desc">"Where backend developers are made or broken. The event loop is the engine of everything you'll build. Know it like your own heartbeat."</p>
+
+    <div class="topics-list">
+
+      <div class="topic-card">
+        <button class="topic-toggle" onclick="tog(this)">
+          <div class="topic-dot"></div><span class="topic-name">The JavaScript Event Loop</span><span class="topic-arrow">▼</span>
+        </button>
+        <div class="topic-body">
+          <div class="topic-desc">Call stack, Web APIs, task/callback queue, microtask queue (priority!), render steps — why JS is single-threaded but non-blocking</div>
+          <div class="resource-grid">
+            <div class="resource-row"><span class="resource-badge badge-book">📖 BOOK</span><span class="resource-text"><strong>YDKJS: Async & Performance</strong> — Ch. 1: Asynchrony: Now & Later</span></div>
+            <div class="resource-row"><span class="resource-badge badge-yt">▶ WATCH</span><span class="resource-text"><strong>JSConf</strong> — "What the heck is the event loop anyway?" by Philip Roberts — MANDATORY. Watch 3 times.</span></div>
+            <div class="resource-row"><span class="resource-badge badge-do">⌨ DO</span><span class="resource-text"><strong>latentflip.com/loupe</strong> — Visualize YOUR code through the event loop. Paste 10 different examples.</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="topic-card">
+        <button class="topic-toggle" onclick="tog(this)">
+          <div class="topic-dot"></div><span class="topic-name">Callbacks & Callback Hell</span><span class="topic-arrow">▼</span>
+        </button>
+        <div class="topic-body">
+          <div class="topic-desc">The callback pattern, inversion of control problem, callback hell / pyramid of doom — understand the PROBLEM deeply before learning the solution</div>
+          <div class="resource-grid">
+            <div class="resource-row"><span class="resource-badge badge-book">📖 BOOK</span><span class="resource-text"><strong>YDKJS: Async & Performance</strong> — Ch. 2: Callbacks</span></div>
+            <div class="resource-row"><span class="resource-badge badge-yt">▶ WATCH</span><span class="resource-text"><strong>Traversy Media</strong> — "Async JS Crash Course — Callbacks, Promises, Async Await"</span></div>
+            <div class="resource-row"><span class="resource-badge badge-do">⌨ DO</span><span class="resource-text"><strong>Write</strong> a 3-level nested callback chain deliberately, then identify every problem with it</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="topic-card">
+        <button class="topic-toggle" onclick="tog(this)">
+          <div class="topic-dot"></div><span class="topic-name">Promises — Full Mastery</span><span class="topic-arrow">▼</span>
+        </button>
+        <div class="topic-body">
+          <div class="topic-desc">3 states (pending/fulfilled/rejected), .then/.catch/.finally chaining, Promise.all, .race, .any, .allSettled — know when to use each. Error propagation through chains.</div>
+          <div class="resource-grid">
+            <div class="resource-row"><span class="resource-badge badge-book">📖 BOOK</span><span class="resource-text"><strong>YDKJS: Async & Performance</strong> — Ch. 3: Promises</span></div>
+            <div class="resource-row"><span class="resource-badge badge-yt">▶ WATCH</span><span class="resource-text"><strong>Web Dev Simplified</strong> — "JavaScript Promises In 10 Minutes" + "5 Promise Methods You Need to Know"</span></div>
+            <div class="resource-row"><span class="resource-badge badge-do">⌨ DO</span><span class="resource-text"><strong>javascript.info</strong> — "Promises, async/await" full module — complete ALL exercises</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="topic-card">
+        <button class="topic-toggle" onclick="tog(this)">
+          <div class="topic-dot"></div><span class="topic-name">async / await</span><span class="topic-arrow">▼</span>
+        </button>
+        <div class="topic-body">
+          <div class="topic-desc">Syntactic sugar over Promises, try/catch for errors, sequential vs parallel execution, Promise.all with await, top-level await, common async bugs</div>
+          <div class="resource-grid">
+            <div class="resource-row"><span class="resource-badge badge-book">📖 BOOK</span><span class="resource-text"><strong>JavaScript: The Definitive Guide, 7th Ed.</strong> — Ch. 13: Asynchronous JavaScript</span></div>
+            <div class="resource-row"><span class="resource-badge badge-yt">▶ WATCH</span><span class="resource-text"><strong>Fireship</strong> — "Async/Await in 100 Seconds"</span></div>
+            <div class="resource-row"><span class="resource-badge badge-do">⌨ DO</span><span class="resource-text"><strong>Refactor</strong> — your Weather App's fetch code from .then chains to async/await</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="topic-card">
+        <button class="topic-toggle" onclick="tog(this)">
+          <div class="topic-dot"></div><span class="topic-name">Functional Programming Patterns</span><span class="topic-arrow">▼</span>
+        </button>
+        <div class="topic-body">
+          <div class="topic-desc">Pure functions, immutability, currying, function composition, pipe/compose utilities, avoiding side effects — foundational for writing clean backend code</div>
+          <div class="resource-grid">
+            <div class="resource-row"><span class="resource-badge badge-book">📖 BOOK</span><span class="resource-text"><strong>Eloquent JavaScript</strong> — Ch. 5 (functional section)</span></div>
+            <div class="resource-row"><span class="resource-badge badge-yt">▶ WATCH</span><span class="resource-text"><strong>Fun Fun Function</strong> — "Functional Programming in JavaScript" series by MPJ — watch the full playlist</span></div>
+            <div class="resource-row"><span class="resource-badge badge-do">⌨ DO</span><span class="resource-text"><strong>Build from scratch:</strong> curry(), compose(), pipe(), memoize() — zero libraries</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="topic-card">
+        <button class="topic-toggle" onclick="tog(this)">
+          <div class="topic-dot"></div><span class="topic-name">Fetch API & Real API Integration</span><span class="topic-arrow">▼</span>
+        </button>
+        <div class="topic-body">
+          <div class="topic-desc">fetch(), JSON.parse/stringify, HTTP methods (GET/POST/PUT/DELETE), headers, proper error handling for network failures, Axios as the production alternative</div>
+          <div class="resource-grid">
+            <div class="resource-row"><span class="resource-badge badge-book">📖 BOOK</span><span class="resource-text"><strong>Eloquent JavaScript</strong> — Ch. 18: HTTP and Forms</span></div>
+            <div class="resource-row"><span class="resource-badge badge-yt">▶ WATCH</span><span class="resource-text"><strong>Traversy Media</strong> — "Fetch API Introduction"</span></div>
+            <div class="resource-row"><span class="resource-badge badge-do">⌨ DO</span><span class="resource-text"><strong>Build 3 API integrations</strong> — using fetch with different HTTP methods, full error handling</span></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="milestone-box">
+      <div class="milestone-label">🏁 Phase 3 Milestone Project</div>
+      <div class="milestone-text">Build a <strong>Real-Time Chat App</strong> — Node.js WebSocket server (ws package, NOT Socket.io yet), vanilla JS frontend, multiple rooms, username support. Raw WebSockets so you understand the protocol.</div>
+    </div>
+  </section>
+
+  <!-- ─────── PHASE 4 ─────── -->
+  <section id="phase4" class="phase-section" style="border-color:var(--p4);--phase-color:var(--p4)">
+    <div class="phase-header">
+      <div class="phase-num-bg">04</div>
+      <div class="phase-title-block">
+        <div class="phase-label">Phase 04</div>
+        <div class="phase-name">NODE.JS BACKEND</div>
+      </div>
+      <div class="phase-duration">Month 6 – 9</div>
+    </div>
+    <p class="phase-desc">"Your main arena as a backend engineer. Do not rush this phase. Node.js Design Patterns is your bible here — it's the most important technical book you'll read."</p>
+
+    <div class="topics-list">
+
+      <div class="topic-card">
+        <button class="topic-toggle" onclick="tog(this)">
+          <div class="topic-dot"></div><span class="topic-name">Node.js Internals & Architecture</span><span class="topic-arrow">▼</span>
+        </button>
+        <div class="topic-body">
+          <div class="topic-desc">Event-driven architecture, libuv, Node's event loop (DIFFERENT from browser's!), single-threaded non-blocking I/O model, global objects, process module</div>
+          <div class="resource-grid">
+            <div class="resource-row"><span class="resource-badge badge-book">📖 BOOK</span><span class="resource-text"><strong>Node.js Design Patterns, 3rd Ed.</strong> — Ch. 1: Node.js Platform + Ch. 2: Module System</span></div>
+            <div class="resource-row"><span class="resource-badge badge-yt">▶ WATCH</span><span class="resource-text"><strong>Traversy Media</strong> — "Node.js Crash Course" (10-part series)</span></div>
+            <div class="resource-row"><span class="resource-badge badge-do">⌨ DO</span><span class="resource-text"><strong>Build 5 CLI tools</strong> in Node.js: file reader, word counter, grep clone, directory lister, todo CLI</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="topic-card">
+        <button class="topic-toggle" onclick="tog(this)">
+          <div class="topic-dot"></div><span class="topic-name">File System (fs) & Path Module</span><span class="topic-arrow">▼</span>
+        </button>
+        <div class="topic-body">
+          <div class="topic-desc">Sync vs async file ops, readFile/writeFile/appendFile, working with directories, path.join/resolve/__dirname, fs.watch for file changes</div>
+          <div class="resource-grid">
+            <div class="resource-row"><span class="resource-badge badge-book">📖 BOOK</span><span class="resource-text"><strong>Node.js Design Patterns</strong> — Ch. 3 (covers file I/O in context of Streams)</span></div>
+            <div class="resource-row"><span class="resource-badge badge-yt">▶ WATCH</span><span class="resource-text"><strong>The Net Ninja</strong> — "Node.js Tutorial for Beginners" (fs module episodes)</span></div>
+            <div class="resource-row"><span class="resource-badge badge-do">⌨ DO</span><span class="resource-text"><strong>Build</strong> a CLI file manager — create, read, update, delete, list operations</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="topic-card">
+        <button class="topic-toggle" onclick="tog(this)">
+          <div class="topic-dot"></div><span class="topic-name">Raw HTTP Server (No Frameworks)</span><span class="topic-arrow">▼</span>
+        </button>
+        <div class="topic-body">
+          <div class="topic-desc">http.createServer(), manual routing, parsing request body, setting response headers, status codes — BEFORE you touch Express. Know what it's abstracting.</div>
+          <div class="resource-grid">
+            <div class="resource-row"><span class="resource-badge badge-book">📖 BOOK</span><span class="resource-text"><strong>Node.js Design Patterns</strong> — Ch. 2 (HTTP server section)</span></div>
+            <div class="resource-row"><span class="resource-badge badge-yt">▶ WATCH</span><span class="resource-text"><strong>Traversy Media</strong> — "Node.js HTTP Module Tutorial"</span></div>
+            <div class="resource-row"><span class="resource-badge badge-do">⌨ DO</span><span class="resource-text"><strong>Build</strong> a raw HTTP server with GET/POST routing, JSON responses. NO Express.</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="topic-card">
+        <button class="topic-toggle" onclick="tog(this)">
+          <div class="topic-dot"></div><span class="topic-name">Express.js — Routing & Middleware</span><span class="topic-arrow">▼</span>
+        </button>
+        <div class="topic-body">
+          <div class="topic-desc">Router setup, route params/query strings, middleware chain (understand the (req, res, next) model), error handling middleware (4 params!), serving static, body parsing</div>
+          <div class="resource-grid">
+            <div class="resource-row"><span class="resource-badge badge-book">📖 BOOK</span><span class="resource-text"><strong>Node.js Design Patterns</strong> — Ch. 8: Web Application Patterns</span></div>
+            <div class="resource-row"><span class="resource-badge badge-yt">▶ WATCH</span><span class="resource-text"><strong>Traversy Media</strong> — "Express JS Crash Course"</span></div>
+            <div class="resource-row"><span class="resource-badge badge-do">⌨ DO</span><span class="resource-text"><strong>Build 3 Express APIs</strong>: blog API, product catalog, user CRUD — before adding any DB</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="topic-card">
+        <button class="topic-toggle" onclick="tog(this)">
+          <div class="topic-dot"></div><span class="topic-name">REST API Design Principles</span><span class="topic-arrow">▼</span>
+        </button>
+        <div class="topic-body">
+          <div class="topic-desc">Resource naming, proper HTTP status codes (not just 200/500), API versioning (/api/v1), request/response structure, idempotency, pagination patterns</div>
+          <div class="resource-grid">
+            <div class="resource-row"><span class="resource-badge badge-yt">▶ WATCH</span><span class="resource-text"><strong>Academind</strong> — "REST API Design Best Practices"</span></div>
+            <div class="resource-row"><span class="resource-badge badge-read">📄 READ</span><span class="resource-text"><strong>restfulapi.net</strong> — Full guide to REST constraints (free, authoritative)</span></div>
+            <div class="resource-row"><span class="resource-badge badge-do">⌨ DO</span><span class="resource-text"><strong>Design first:</strong> write a full REST API spec for a social app BEFORE writing code</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="topic-card">
+        <button class="topic-toggle" onclick="tog(this)">
+          <div class="topic-dot"></div><span class="topic-name">Authentication — JWT + bcrypt</span><span class="topic-arrow">▼</span>
+        </button>
+        <div class="topic-body">
+          <div class="topic-desc">Password hashing (bcrypt, understand salt rounds), JWT creation/verification/expiry, refresh tokens, auth middleware pattern, session vs token — know the tradeoffs</div>
+          <div class="resource-grid">
+            <div class="resource-row"><span class="resource-badge badge-book">📖 BOOK</span><span class="resource-text"><strong>Node.js Design Patterns</strong> — Security patterns chapter</span></div>
+            <div class="resource-row"><span class="resource-badge badge-yt">▶ WATCH</span><span class="resource-text"><strong>Web Dev Simplified</strong> — "JWT Authentication Tutorial — Node.js"</span></div>
+            <div class="resource-row"><span class="resource-badge badge-do">⌨ DO</span><span class="resource-text"><strong>Build</strong> a complete auth system: register, login, protected routes, refresh token rotation</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="topic-card">
+        <button class="topic-toggle" onclick="tog(this)">
+          <div class="topic-dot"></div><span class="topic-name">PostgreSQL + Node.js</span><span class="topic-arrow">▼</span>
+        </button>
+        <div class="topic-body">
+          <div class="topic-desc">Schema design, relations, JOINs, transactions, indexes, connecting with pg driver, parameterized queries (no SQL injection!), migrations</div>
+          <div class="resource-grid">
+            <div class="resource-row"><span class="resource-badge badge-read">📄 READ</span><span class="resource-text"><strong>PostgreSQL Docs</strong> — Tutorial section (official, free) — do it first</span></div>
+            <div class="resource-row"><span class="resource-badge badge-yt">▶ WATCH</span><span class="resource-text"><strong>Academind</strong> — "PostgreSQL + Node.js Tutorial"</span></div>
+            <div class="resource-row"><span class="resource-badge badge-do">⌨ DO</span><span class="resource-text"><strong>Build</strong> a blog platform backend with PostgreSQL — users, posts, comments, tags, relations</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="topic-card">
+        <button class="topic-toggle" onclick="tog(this)">
+          <div class="topic-dot"></div><span class="topic-name">Prisma ORM</span><span class="topic-arrow">▼</span>
+        </button>
+        <div class="topic-body">
+          <div class="topic-desc">Schema definition, migrations, type-safe CRUD, relations, filtering, pagination, Prisma Client generation — this is the modern standard</div>
+          <div class="resource-grid">
+            <div class="resource-row"><span class="resource-badge badge-read">📄 READ</span><span class="resource-text"><strong>Prisma Docs</strong> — "Getting Started" + "Prisma with Express" guide (excellent docs)</span></div>
+            <div class="resource-row"><span class="resource-badge badge-yt">▶ WATCH</span><span class="resource-text"><strong>Fireship</strong> — "Prisma in 100 Seconds" + full Prisma tutorial</span></div>
+            <div class="resource-row"><span class="resource-badge badge-do">⌨ DO</span><span class="resource-text"><strong>Rebuild</strong> your PostgreSQL blog project using Prisma — see the difference in code quality</span></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="milestone-box">
+      <div class="milestone-label">🏁 Phase 4 Milestone Project</div>
+      <div class="milestone-text">Build a full <strong>Task Management REST API</strong> — Express + PostgreSQL + Prisma + JWT Auth + role-based access (admin/user). Deployed live on Railway or Render. This goes on your portfolio.</div>
+    </div>
+  </section>
+
+  <!-- ─────── PHASE 5 ─────── -->
+  <section id="phase5" class="phase-section" style="border-color:var(--p5);--phase-color:var(--p5)">
+    <div class="phase-header">
+      <div class="phase-num-bg">05</div>
+      <div class="phase-title-block">
+        <div class="phase-label">Phase 05</div>
+        <div class="phase-name">PRODUCTION BACKEND</div>
+      </div>
+      <div class="phase-duration">Month 9 – 12</div>
+    </div>
+    <p class="phase-desc">"The gap between junior devs and real engineers. Production is where code either survives or silently destroys everything."</p>
+
+    <div class="topics-list">
+
+      <div class="topic-card">
+        <button class="topic-toggle" onclick="tog(this)">
+          <div class="topic-dot"></div><span class="topic-name">Security — helmet, CORS, Rate Limiting</span><span class="topic-arrow">▼</span>
+        </button>
+        <div class="topic-body">
+          <div class="topic-desc">helmet.js security headers, CORS policy configuration, express-rate-limit, input validation with Zod, XSS/CSRF prevention, SQL injection (already covered by Prisma)</div>
+          <div class="resource-grid">
+            <div class="resource-row"><span class="resource-badge badge-book">📖 BOOK</span><span class="resource-text"><strong>Node.js Design Patterns</strong> — Ch. 9: Advanced Recipes (security patterns)</span></div>
+            <div class="resource-row"><span class="resource-badge badge-yt">▶ WATCH</span><span class="resource-text"><strong>Traversy Media</strong> — "Secure Express Apps with Helmet"</span></div>
+            <div class="resource-row"><span class="resource-badge badge-do">⌨ DO</span><span class="resource-text"><strong>Audit</strong> your Phase 4 API for every security hole, then fix all of them</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="topic-card">
+        <button class="topic-toggle" onclick="tog(this)">
+          <div class="topic-dot"></div><span class="topic-name">Redis & Caching Strategy</span><span class="topic-arrow">▼</span>
+        </button>
+        <div class="topic-body">
+          <div class="topic-desc">Redis data structures, cache-aside pattern, TTL, cache invalidation (the hard problem), session storage with Redis, caching DB query results</div>
+          <div class="resource-grid">
+            <div class="resource-row"><span class="resource-badge badge-yt">▶ WATCH</span><span class="resource-text"><strong>Fireship</strong> — "Redis Explained in 100 Seconds" + full Redis tutorial</span></div>
+            <div class="resource-row"><span class="resource-badge badge-read">📄 READ</span><span class="resource-text"><strong>Redis Docs</strong> — "Getting Started" + "Node.js with Redis" guide (free)</span></div>
+            <div class="resource-row"><span class="resource-badge badge-do">⌨ DO</span><span class="resource-text"><strong>Add Redis caching</strong> to your Task API — measure response time before vs after</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="topic-card">
+        <button class="topic-toggle" onclick="tog(this)">
+          <div class="topic-dot"></div><span class="topic-name">Job Queues with BullMQ</span><span class="topic-arrow">▼</span>
+        </button>
+        <div class="topic-body">
+          <div class="topic-desc">Producer/consumer pattern, queue workers, priority queues, delayed jobs, job retries — use cases: emails, image processing, scheduled reports</div>
+          <div class="resource-grid">
+            <div class="resource-row"><span class="resource-badge badge-book">📖 BOOK</span><span class="resource-text"><strong>Node.js Design Patterns</strong> — Ch. 11: Messaging and Integration Patterns</span></div>
+            <div class="resource-row"><span class="resource-badge badge-read">📄 READ</span><span class="resource-text"><strong>BullMQ Docs</strong> — "Quick Start" guide (excellent documentation)</span></div>
+            <div class="resource-row"><span class="resource-badge badge-do">⌨ DO</span><span class="resource-text"><strong>Add</strong> an email notification queue to your API — BullMQ + Nodemailer</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="topic-card">
+        <button class="topic-toggle" onclick="tog(this)">
+          <div class="topic-dot"></div><span class="topic-name">Testing with Jest</span><span class="topic-arrow">▼</span>
+        </button>
+        <div class="topic-body">
+          <div class="topic-desc">Unit tests, integration tests, mocking (jest.fn/jest.mock), supertest for HTTP endpoint testing, test coverage reports, TDD mindset</div>
+          <div class="resource-grid">
+            <div class="resource-row"><span class="resource-badge badge-book">📖 BOOK</span><span class="resource-text"><strong>Clean Code</strong> — Ch. 9: Unit Tests — read this BEFORE writing a single test</span></div>
+            <div class="resource-row"><span class="resource-badge badge-yt">▶ WATCH</span><span class="resource-text"><strong>Traversy Media</strong> — "Jest Crash Course" + "Testing Node.js with Supertest"</span></div>
+            <div class="resource-row"><span class="resource-badge badge-do">⌨ DO</span><span class="resource-text"><strong>Write</strong> a full test suite for your Task API — 80%+ coverage. Untested code is broken code.</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="topic-card">
+        <button class="topic-toggle" onclick="tog(this)">
+          <div class="topic-dot"></div><span class="topic-name">Docker — Containerize Everything</span><span class="topic-arrow">▼</span>
+        </button>
+        <div class="topic-body">
+          <div class="topic-desc">Dockerfile, multi-stage builds, docker-compose for local dev, volumes, networks, env variables, containerizing Node.js + PostgreSQL + Redis as a stack</div>
+          <div class="resource-grid">
+            <div class="resource-row"><span class="resource-badge badge-yt">▶ WATCH</span><span class="resource-text"><strong>TechWorld with Nana</strong> — "Docker Tutorial for Beginners" (full course — best Docker content)</span></div>
+            <div class="resource-row"><span class="resource-badge badge-yt">▶ WATCH</span><span class="resource-text"><strong>Fireship</strong> — "Docker in 100 Seconds" (quick mental model first, before Nana)</span></div>
+            <div class="resource-row"><span class="resource-badge badge-do">⌨ DO</span><span class="resource-text"><strong>Dockerize</strong> your entire Task API stack — docker-compose with app + postgres + redis</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="topic-card">
+        <button class="topic-toggle" onclick="tog(this)">
+          <div class="topic-dot"></div><span class="topic-name">CI/CD with GitHub Actions</span><span class="topic-arrow">▼</span>
+        </button>
+        <div class="topic-body">
+          <div class="topic-desc">Workflow YAML syntax, triggers, automated tests on push, build steps, environment secrets, deploy to VPS on merge to main, status badges</div>
+          <div class="resource-grid">
+            <div class="resource-row"><span class="resource-badge badge-yt">▶ WATCH</span><span class="resource-text"><strong>Fireship</strong> — "GitHub Actions in 100 Seconds" + CI/CD pipeline tutorial</span></div>
+            <div class="resource-row"><span class="resource-badge badge-read">📄 READ</span><span class="resource-text"><strong>GitHub Docs</strong> — "Understanding GitHub Actions" (official, free)</span></div>
+            <div class="resource-row"><span class="resource-badge badge-do">⌨ DO</span><span class="resource-text"><strong>Set up</strong> a full CI/CD pipeline — auto-test on PR, auto-deploy on merge to main</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="topic-card">
+        <button class="topic-toggle" onclick="tog(this)">
+          <div class="topic-dot"></div><span class="topic-name">Logging & Monitoring</span><span class="topic-arrow">▼</span>
+        </button>
+        <div class="topic-body">
+          <div class="topic-desc">Winston structured logging (JSON format in prod), log levels, Morgan HTTP request logging, log rotation, understanding what's happening in production</div>
+          <div class="resource-grid">
+            <div class="resource-row"><span class="resource-badge badge-yt">▶ WATCH</span><span class="resource-text"><strong>Traversy Media</strong> — "Node.js Logging with Winston"</span></div>
+            <div class="resource-row"><span class="resource-badge badge-do">⌨ DO</span><span class="resource-text"><strong>Add</strong> full Winston logging to your API — different log levels, file output, console output</span></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="milestone-box">
+      <div class="milestone-label">🏁 Phase 5 Milestone Project</div>
+      <div class="milestone-text">Upgrade your Task API to a <strong>production-grade system</strong> — security hardened, Redis-cached, BullMQ email queue, Jest test suite (80%+ coverage), fully dockerized, GitHub Actions CI/CD pipeline. If someone hired you tomorrow, this is your evidence.</div>
+    </div>
+  </section>
+
+  <!-- ─────── PHASE 6 ─────── -->
+  <section id="phase6" class="phase-section" style="border-color:var(--p6);--phase-color:var(--p6)">
+    <div class="phase-header">
+      <div class="phase-num-bg">06</div>
+      <div class="phase-title-block">
+        <div class="phase-label">Phase 06</div>
+        <div class="phase-name">TYPESCRIPT + ARCHITECTURE</div>
+      </div>
+      <div class="phase-duration">Month 12 – 15</div>
+    </div>
+    <p class="phase-desc">"The difference between a coder and an engineer. Clean systems don't happen by accident — they're designed. DDIA is one of the most important books in software engineering."</p>
+
+    <div class="topics-list">
+
+      <div class="topic-card">
+        <button class="topic-toggle" onclick="tog(this)">
+          <div class="topic-dot"></div><span class="topic-name">TypeScript Fundamentals</span><span class="topic-arrow">▼</span>
+        </button>
+        <div class="topic-body">
+          <div class="topic-desc">Static typing, interfaces, type aliases, union/intersection types, enums, type narrowing (typeof/instanceof/in), tsconfig strict mode — why strict matters</div>
+          <div class="resource-grid">
+            <div class="resource-row"><span class="resource-badge badge-book">📖 BOOK</span><span class="resource-text"><strong>Effective TypeScript, 2nd Ed.</strong> — Items 1–20 (fundamentals section)</span></div>
+            <div class="resource-row"><span class="resource-badge badge-yt">▶ WATCH</span><span class="resource-text"><strong>Jack Herrington</strong> — "TypeScript Zero to Hero" series</span></div>
+            <div class="resource-row"><span class="resource-badge badge-do">⌨ DO</span><span class="resource-text"><strong>Rewrite</strong> your Phase 4 Task API entirely in TypeScript — feel the difference</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="topic-card">
+        <button class="topic-toggle" onclick="tog(this)">
+          <div class="topic-dot"></div><span class="topic-name">TypeScript Advanced — Generics & Utility Types</span><span class="topic-arrow">▼</span>
+        </button>
+        <div class="topic-body">
+          <div class="topic-desc">Generic functions/classes, Partial, Required, Readonly, Pick, Omit, Record, conditional types, mapped types, template literal types, decorators</div>
+          <div class="resource-grid">
+            <div class="resource-row"><span class="resource-badge badge-book">📖 BOOK</span><span class="resource-text"><strong>Effective TypeScript</strong> — Items 21–50 (advanced patterns)</span></div>
+            <div class="resource-row"><span class="resource-badge badge-yt">▶ WATCH</span><span class="resource-text"><strong>Jack Herrington</strong> — "TypeScript Generics" deep dive videos</span></div>
+            <div class="resource-row"><span class="resource-badge badge-do">⌨ DO</span><span class="resource-text"><strong>TypeHero.dev</strong> — TypeScript challenges (LeetCode for types) — solve daily</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="topic-card">
+        <button class="topic-toggle" onclick="tog(this)">
+          <div class="topic-dot"></div><span class="topic-name">Design Patterns in TypeScript</span><span class="topic-arrow">▼</span>
+        </button>
+        <div class="topic-body">
+          <div class="topic-desc">Singleton, Factory, Observer, Strategy, Decorator, Dependency Injection — implement each from scratch, with REAL use cases not toy examples</div>
+          <div class="resource-grid">
+            <div class="resource-row"><span class="resource-badge badge-book">📖 BOOK</span><span class="resource-text"><strong>Clean Code</strong> — Full book (read parallel to this phase)</span></div>
+            <div class="resource-row"><span class="resource-badge badge-yt">▶ WATCH</span><span class="resource-text"><strong>Fireship</strong> — "10 Design Patterns Explained in 10 Minutes"</span></div>
+            <div class="resource-row"><span class="resource-badge badge-do">⌨ DO</span><span class="resource-text"><strong>Implement each pattern</strong> in TypeScript — with a real use case that you'd actually ship</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="topic-card">
+        <button class="topic-toggle" onclick="tog(this)">
+          <div class="topic-dot"></div><span class="topic-name">System Design Fundamentals</span><span class="topic-arrow">▼</span>
+        </button>
+        <div class="topic-body">
+          <div class="topic-desc">Scalability, load balancing, horizontal vs vertical scaling, databases at scale, caching layers, CAP theorem, microservices vs monolith, eventual consistency</div>
+          <div class="resource-grid">
+            <div class="resource-row"><span class="resource-badge badge-book">📖 BOOK</span><span class="resource-text"><strong>Designing Data-Intensive Applications (DDIA)</strong> — Martin Kleppmann — Ch. 1–5</span></div>
+            <div class="resource-row"><span class="resource-badge badge-yt">▶ WATCH</span><span class="resource-text"><strong>Gaurav Sen</strong> — "System Design" YouTube channel — entire playlist</span></div>
+            <div class="resource-row"><span class="resource-badge badge-do">⌨ DO</span><span class="resource-text"><strong>Design on paper:</strong> Twitter, Pastebin, and URL Shortener architectures from scratch</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="topic-card">
+        <button class="topic-toggle" onclick="tog(this)">
+          <div class="topic-dot"></div><span class="topic-name">Clean Architecture & SOLID Principles</span><span class="topic-arrow">▼</span>
+        </button>
+        <div class="topic-body">
+          <div class="topic-desc">Separation of concerns, layered architecture (controller/service/repository/domain), SOLID principles in practice, dependency inversion with IoC containers</div>
+          <div class="resource-grid">
+            <div class="resource-row"><span class="resource-badge badge-book">📖 BOOK</span><span class="resource-text"><strong>Clean Architecture</strong> — Robert C. Martin — Ch. 1–20 (pair with Clean Code)</span></div>
+            <div class="resource-row"><span class="resource-badge badge-yt">▶ WATCH</span><span class="resource-text"><strong>Traversy Media</strong> — "MVC Design Pattern Explained"</span></div>
+            <div class="resource-row"><span class="resource-badge badge-do">⌨ DO</span><span class="resource-text"><strong>Refactor</strong> your entire Task API into clean architecture — 4 proper layers</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="topic-card">
+        <button class="topic-toggle" onclick="tog(this)">
+          <div class="topic-dot"></div><span class="topic-name">API Architecture — REST vs GraphQL vs gRPC</span><span class="topic-arrow">▼</span>
+        </button>
+        <div class="topic-body">
+          <div class="topic-desc">REST (mastered), GraphQL schema/resolvers/queries, gRPC protobuf definitions — know the tradeoffs, not just the syntax, and when each is appropriate</div>
+          <div class="resource-grid">
+            <div class="resource-row"><span class="resource-badge badge-yt">▶ WATCH</span><span class="resource-text"><strong>Fireship</strong> — "GraphQL in 100 Seconds" + "gRPC in 100 Seconds"</span></div>
+            <div class="resource-row"><span class="resource-badge badge-yt">▶ WATCH</span><span class="resource-text"><strong>Academind</strong> — "GraphQL with Node.js" full tutorial</span></div>
+            <div class="resource-row"><span class="resource-badge badge-do">⌨ DO</span><span class="resource-text"><strong>Build the same API</strong> in REST then GraphQL — experience the difference firsthand</span></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="milestone-box">
+      <div class="milestone-label">🏁 Phase 6 Milestone Project</div>
+      <div class="milestone-text">Build a <strong>fully typed, clean architecture API</strong> in TypeScript — REST + GraphQL endpoints, proper layers, SOLID principles applied, system design document written FIRST. This is your portfolio centerpiece.</div>
+    </div>
+  </section>
+
+  <!-- ─────── PHASE 7 ─────── -->
+  <section id="phase7" class="phase-section" style="border-color:var(--p7);--phase-color:var(--p7)">
+    <div class="phase-header">
+      <div class="phase-num-bg">07</div>
+      <div class="phase-title-block">
+        <div class="phase-label">Phase 07</div>
+        <div class="phase-name">GOD LEVEL</div>
+      </div>
+      <div class="phase-duration">Month 15 – 18+</div>
+    </div>
+    <p class="phase-desc">"Almost nobody reaches here. The V8 engine doesn't care about your feelings — understand it or get left behind. This phase has no finish line."</p>
+
+    <div class="topics-list">
+
+      <div class="topic-card">
+        <button class="topic-toggle" onclick="tog(this)">
+          <div class="topic-dot"></div><span class="topic-name">V8 Engine Internals</span><span class="topic-arrow">▼</span>
+        </button>
+        <div class="topic-body">
+          <div class="topic-desc">JIT compilation pipeline, Ignition interpreter, Turbofan optimizing compiler, hidden classes, inline caches, deoptimization — write V8-friendly code on purpose</div>
+          <div class="resource-grid">
+            <div class="resource-row"><span class="resource-badge badge-read">📄 READ</span><span class="resource-text"><strong>v8.dev/blog</strong> — V8 team's own blog. Primary source. No substitute exists.</span></div>
+            <div class="resource-row"><span class="resource-badge badge-yt">▶ WATCH</span><span class="resource-text"><strong>JSConf</strong> — Franziska Hinkelmann "JavaScript Engines: The Good Parts™"</span></div>
+            <div class="resource-row"><span class="resource-badge badge-do">⌨ DO</span><span class="resource-text"><strong>Profile</strong> your Node.js app with --prof flag — analyze output, find hotspots, optimize them</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="topic-card">
+        <button class="topic-toggle" onclick="tog(this)">
+          <div class="topic-dot"></div><span class="topic-name">Node.js Streams — All 4 Types</span><span class="topic-arrow">▼</span>
+        </button>
+        <div class="topic-body">
+          <div class="topic-desc">Readable, Writable, Transform, Duplex streams, backpressure handling, stream piping, stream composition — high-performance data processing that doesn't load into RAM</div>
+          <div class="resource-grid">
+            <div class="resource-row"><span class="resource-badge badge-book">📖 BOOK</span><span class="resource-text"><strong>Node.js Design Patterns</strong> — Ch. 3: Streams (entire chapter — most important in the book)</span></div>
+            <div class="resource-row"><span class="resource-badge badge-yt">▶ WATCH</span><span class="resource-text"><strong>Traversy Media</strong> — "Node.js Streams Tutorial"</span></div>
+            <div class="resource-row"><span class="resource-badge badge-do">⌨ DO</span><span class="resource-text"><strong>Build</strong> a streaming log processor that handles files bigger than available RAM</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="topic-card">
+        <button class="topic-toggle" onclick="tog(this)">
+          <div class="topic-dot"></div><span class="topic-name">Cluster Module & Worker Threads</span><span class="topic-arrow">▼</span>
+        </button>
+        <div class="topic-body">
+          <div class="topic-desc">Using all CPU cores with cluster, worker_threads for CPU-intensive tasks, shared memory with SharedArrayBuffer, inter-worker message passing</div>
+          <div class="resource-grid">
+            <div class="resource-row"><span class="resource-badge badge-book">📖 BOOK</span><span class="resource-text"><strong>Node.js Design Patterns</strong> — Scaling and multithreading chapters</span></div>
+            <div class="resource-row"><span class="resource-badge badge-yt">▶ WATCH</span><span class="resource-text"><strong>Academind</strong> — "Node.js Cluster & Worker Threads" tutorial</span></div>
+            <div class="resource-row"><span class="resource-badge badge-do">⌨ DO</span><span class="resource-text"><strong>Benchmark:</strong> single process vs clustered Express server under load — use autocannon</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="topic-card">
+        <button class="topic-toggle" onclick="tog(this)">
+          <div class="topic-dot"></div><span class="topic-name">Memory Management & Garbage Collection</span><span class="topic-arrow">▼</span>
+        </button>
+        <div class="topic-body">
+          <div class="topic-desc">V8 heap structure, young/old generation GC, heap snapshots in Chrome DevTools, detecting memory leaks in production, common leak patterns and how to avoid them</div>
+          <div class="resource-grid">
+            <div class="resource-row"><span class="resource-badge badge-read">📄 READ</span><span class="resource-text"><strong>Node.js Docs</strong> — "Memory Usage" + "Diagnostics" guides (official, free)</span></div>
+            <div class="resource-row"><span class="resource-badge badge-yt">▶ WATCH</span><span class="resource-text"><strong>NodeConf talks</strong> — "Debugging Memory Leaks in Node.js"</span></div>
+            <div class="resource-row"><span class="resource-badge badge-do">⌨ DO</span><span class="resource-text"><strong>Intentionally create</strong> a memory leak — then find and fix it using heap snapshots</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="topic-card">
+        <button class="topic-toggle" onclick="tog(this)">
+          <div class="topic-dot"></div><span class="topic-name">Open Source Contribution</span><span class="topic-arrow">▼</span>
+        </button>
+        <div class="topic-body">
+          <div class="topic-desc">Finding good-first-issues, reading large codebases, writing proper PR descriptions, surviving code review, maintaining your own packages</div>
+          <div class="resource-grid">
+            <div class="resource-row"><span class="resource-badge badge-read">📄 READ</span><span class="resource-text"><strong>opensource.guide</strong> — "How to Contribute to Open Source" (free)</span></div>
+            <div class="resource-row"><span class="resource-badge badge-do">⌨ DO</span><span class="resource-text"><strong>Find and submit</strong> a real PR to a Node.js ecosystem repo tagged "good first issue"</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="topic-card">
+        <button class="topic-toggle" onclick="tog(this)">
+          <div class="topic-dot"></div><span class="topic-name">Build & Publish Your Own npm Package</span><span class="topic-arrow">▼</span>
+        </button>
+        <div class="topic-body">
+          <div class="topic-desc">Package structure, semver versioning, publishing to npm registry, TypeScript type declarations (.d.ts), automated publishing via CI, proper README</div>
+          <div class="resource-grid">
+            <div class="resource-row"><span class="resource-badge badge-yt">▶ WATCH</span><span class="resource-text"><strong>Fireship</strong> — "How to Create and Publish an npm Package"</span></div>
+            <div class="resource-row"><span class="resource-badge badge-do">⌨ DO</span><span class="resource-text"><strong>Publish a genuinely useful utility.</strong> Not a toy. Something you'd actually reach for.</span></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="milestone-box">
+      <div class="milestone-label">🏁 Phase 7 — The God-Level Proof</div>
+      <div class="milestone-text">Either a <strong>merged PR in a notable Node.js/JavaScript project</strong> OR a <strong>published npm package with real users</strong>. Both if possible. This is the separator. Most people talk about this level — you lived it.</div>
+    </div>
+  </section>
+
+</div>
+
+<!-- ═══════════════════ BOOK LIBRARY ═══════════════════ -->
+<div id="books" class="books-section">
+  <div class="section-header">
+    <h2 class="section-title">BOOK LIBRARY</h2>
+    <div class="section-line"></div>
+  </div>
+
+  <div class="books-grid">
+
+    <div class="book-card">
+      <div class="book-meta"><span class="book-phase-tag" style="background:rgba(0,255,157,0.07);color:var(--p1);border:1px solid rgba(0,255,157,0.2)">Phase 1 – 3</span></div>
+      <div class="book-title">Eloquent JavaScript, 4th Edition</div>
+      <div class="book-author">Marijn Haverbeke</div>
+      <div class="book-footer">
+        <span class="price-badge price-both">FREE + PAID</span>
+        <span class="book-note">Free at eloquentjavascript.net — start here</span>
+      </div>
+    </div>
+
+    <div class="book-card">
+      <div class="book-meta"><span class="book-phase-tag" style="background:rgba(0,207,255,0.07);color:var(--p2);border:1px solid rgba(0,207,255,0.2)">Phase 2</span></div>
+      <div class="book-title">YDKJS: Get Started</div>
+      <div class="book-author">Kyle Simpson</div>
+      <div class="book-footer">
+        <span class="price-badge price-both">FREE + PAID</span>
+        <span class="book-note">Free on GitHub — github.com/getify/You-Dont-Know-JS</span>
+      </div>
+    </div>
+
+    <div class="book-card">
+      <div class="book-meta"><span class="book-phase-tag" style="background:rgba(0,207,255,0.07);color:var(--p2);border:1px solid rgba(0,207,255,0.2)">Phase 2</span></div>
+      <div class="book-title">YDKJS: Scope &amp; Closures</div>
+      <div class="book-author">Kyle Simpson</div>
+      <div class="book-footer">
+        <span class="price-badge price-both">FREE + PAID</span>
+        <span class="book-note">Free on GitHub — mandatory reading in Phase 2</span>
+      </div>
+    </div>
+
+    <div class="book-card">
+      <div class="book-meta"><span class="book-phase-tag" style="background:rgba(0,207,255,0.07);color:var(--p2);border:1px solid rgba(0,207,255,0.2)">Phase 2</span></div>
+      <div class="book-title">YDKJS: this &amp; Object Prototypes</div>
+      <div class="book-author">Kyle Simpson</div>
+      <div class="book-footer">
+        <span class="price-badge price-both">FREE + PAID</span>
+        <span class="book-note">Free on GitHub — covers 2 most misunderstood JS concepts</span>
+      </div>
+    </div>
+
+    <div class="book-card">
+      <div class="book-meta"><span class="book-phase-tag" style="background:rgba(200,0,255,0.07);color:var(--p3);border:1px solid rgba(200,0,255,0.2)">Phase 3</span></div>
+      <div class="book-title">YDKJS: Async &amp; Performance</div>
+      <div class="book-author">Kyle Simpson</div>
+      <div class="book-footer">
+        <span class="price-badge price-both">FREE + PAID</span>
+        <span class="book-note">Free on GitHub — event loop & async explained correctly</span>
+      </div>
+    </div>
+
+    <div class="book-card">
+      <div class="book-meta"><span class="book-phase-tag" style="background:rgba(0,207,255,0.07);color:var(--p2);border:1px solid rgba(0,207,255,0.2)">Phase 2 – 3</span></div>
+      <div class="book-title">YDKJS: ES6 &amp; Beyond</div>
+      <div class="book-author">Kyle Simpson</div>
+      <div class="book-footer">
+        <span class="price-badge price-both">FREE + PAID</span>
+        <span class="book-note">Free on GitHub — modern JS features with depth</span>
+      </div>
+    </div>
+
+    <div class="book-card">
+      <div class="book-meta"><span class="book-phase-tag" style="background:rgba(200,0,255,0.07);color:var(--p3);border:1px solid rgba(200,0,255,0.2)">Phase 3 – 7 (Reference)</span></div>
+      <div class="book-title">JavaScript: The Definitive Guide, 7th Ed.</div>
+      <div class="book-author">David Flanagan</div>
+      <div class="book-footer">
+        <span class="price-badge price-paid">PAID</span>
+        <span class="book-note">~₹3,000 — The Bible. Use as reference throughout all phases.</span>
+      </div>
+    </div>
+
+    <div class="book-card">
+      <div class="book-meta"><span class="book-phase-tag" style="background:rgba(255,119,0,0.07);color:var(--p4);border:1px solid rgba(255,119,0,0.2)">Phase 4 – 7</span></div>
+      <div class="book-title">Node.js Design Patterns, 3rd Edition</div>
+      <div class="book-author">Mario Casciaro &amp; Luciano Mammino</div>
+      <div class="book-footer">
+        <span class="price-badge price-paid">PAID</span>
+        <span class="book-note">~₹4,500 — The single best Node.js book. Non-negotiable.</span>
+      </div>
+    </div>
+
+    <div class="book-card">
+      <div class="book-meta"><span class="book-phase-tag" style="background:rgba(255,0,102,0.07);color:var(--p5);border:1px solid rgba(255,0,102,0.2)">Phase 5 – 6</span></div>
+      <div class="book-title">Clean Code</div>
+      <div class="book-author">Robert C. Martin (Uncle Bob)</div>
+      <div class="book-footer">
+        <span class="price-badge price-paid">PAID</span>
+        <span class="book-note">~₹2,500 — Rewires how you think about code quality</span>
+      </div>
+    </div>
+
+    <div class="book-card">
+      <div class="book-meta"><span class="book-phase-tag" style="background:rgba(245,196,0,0.07);color:var(--p6);border:1px solid rgba(245,196,0,0.2)">Phase 6</span></div>
+      <div class="book-title">Effective TypeScript, 2nd Edition</div>
+      <div class="book-author">Dan Vanderkam</div>
+      <div class="book-footer">
+        <span class="price-badge price-paid">PAID</span>
+        <span class="book-note">~₹3,000 — 62 specific ways to improve your TypeScript</span>
+      </div>
+    </div>
+
+    <div class="book-card">
+      <div class="book-meta"><span class="book-phase-tag" style="background:rgba(245,196,0,0.07);color:var(--p6);border:1px solid rgba(245,196,0,0.2)">Phase 6</span></div>
+      <div class="book-title">Designing Data-Intensive Applications</div>
+      <div class="book-author">Martin Kleppmann</div>
+      <div class="book-footer">
+        <span class="price-badge price-paid">PAID</span>
+        <span class="book-note">~₹4,000 — DDIA. Required for any serious backend engineer.</span>
+      </div>
+    </div>
+
+    <div class="book-card">
+      <div class="book-meta"><span class="book-phase-tag" style="background:rgba(245,196,0,0.07);color:var(--p6);border:1px solid rgba(245,196,0,0.2)">Phase 6</span></div>
+      <div class="book-title">Clean Architecture</div>
+      <div class="book-author">Robert C. Martin</div>
+      <div class="book-footer">
+        <span class="price-badge price-paid">PAID</span>
+        <span class="book-note">~₹2,500 — Read alongside Clean Code in Phase 6</span>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ═══════════════════ FOOTER ═══════════════════ -->
+<footer class="footer">
+  <div class="footer-text">
+    // ANDREW'S JAVASCRIPT MASTERY ROADMAP &nbsp;·&nbsp; 7 PHASES &nbsp;·&nbsp; ~18 MONTHS &nbsp;·&nbsp; 12 BOOKS<br>
+    Built to reach god-level backend engineering. Execute without mercy.
+  </div>
+</footer>
+
+<script>
+  function tog(btn) {
+    btn.closest('.topic-card').classList.toggle('open');
+  }
+
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      e.preventDefault();
+      const el = document.querySelector(a.getAttribute('href'));
+      if (el) {
+        const top = el.getBoundingClientRect().top + window.scrollY - 58;
+        window.scrollTo({ top, behavior: 'smooth' });
+      }
+    });
+  });
+</script>
+</body>
+</html>
